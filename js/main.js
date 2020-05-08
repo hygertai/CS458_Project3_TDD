@@ -89,7 +89,8 @@
   mymap.on('locationfound', onLocationFound);
   function onLocationFound(e) {
     console.log(e);
-    L.marker(e.latlng).addTo(mymap);
+    L.marker(e.latlng).addTo(mymap)
+        .bindPopup("<b>Hello!</b><br />This is your location.").openPopup();;
   }
 
 function distanceToCityCenter() {

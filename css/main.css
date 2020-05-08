@@ -330,7 +330,7 @@ textarea.input100 {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px;
-  margin-bottom: 20px;
+
 }
 
 .contact100-form-bgbtn {
@@ -343,6 +343,22 @@ textarea.input100 {
   background: -o-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
   background: -moz-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
   background: linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
+  top: 0;
+  left: -100%;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.contact100-form-special {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #1a911c;
+  background: linear-gradient(-135deg, #206321, #19854b, #19854b, #198554);
   top: 0;
   left: -100%;
 
@@ -371,6 +387,20 @@ textarea.input100 {
 }
 
 .pure-button-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 244px;
+  height: 50px;
+
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.show-location-btn {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -36,6 +36,9 @@
     $('.validate-form').on('submit',function(){
         var check = true;
 
+        var lat = document.getElementsByName("lat")[0].value;
+        var long = document.getElementsByName("long")[0].value;
+
         for(var i=0; i<input.length; i++) {
             if(validate(input[i]) == false){
                 showValidate(input[i]);
@@ -58,7 +61,7 @@
       mymap.locate({setView: true, maxZoom: 15});
     });
 
-    $('.input100').on('click', function(){
+    $('.show-location-btn').on('click', function(){
       var lat = document.getElementsByName("lat")[0].value;
       var long = document.getElementsByName("long")[0].value;
 

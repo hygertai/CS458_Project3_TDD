@@ -21,8 +21,51 @@
       "output": "City: Ottawa"
     }
   ],
-
   "Test2": [
+    {
+      "lat": "39.881951",
+      "long": "32.758416",
+      "output": "Distance to city center: 9.25 kilometers (City center: Lat: 39.920777 | Long: 32.854067 )"
+    },
+    {
+      "lat": "41.052244",
+      "long": "29.010528",
+      "output": "Distance to city center: 6.08 kilometers (City center: Lat: 41.009633 | Long: 28.965165)"
+    },
+    {
+      "lat": "41.283132",
+      "long": "19.857139",
+      "output": "Distance to city center: 5.82 kilometers (City Center: Lat: 41.326873 | Long: 19.818791)"
+    },
+    {
+      "lat": "41.365018",
+      "long": "-88.860369",
+      "output": "Distance to city center: 1156.50 kilometers (City Center: Lat: 45.421106 | Long: -75.690308)"
+    }
+  ],
+  "Test3": [
+    {
+      "lat": "39.881951",
+      "long": "32.758416",
+      "output": "Distance to Earth Center: ~6,378 km"
+    },
+    {
+      "lat": "41.052244",
+      "long": "29.010528",
+      "output": "Distance to Earth Center: ~6,378 km"
+    },
+    {
+      "lat": "41.283132",
+      "long": "19.857139",
+      "output": "Distance to Earth Center: ~6,378 km"
+    },
+    {
+      "lat": "41.365018",
+      "long": "-88.860369",
+      "output": "Distance to Earth Center: ~6,378 km"
+    }
+  ],
+  "Test4": [
     {
       "lat": "39.88 1951",
       "long": "32.758416",

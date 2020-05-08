@@ -79,7 +79,17 @@
         $(thisAlert).removeClass('alert-validate');
     }
 
-    
+
+    function distanceToCityCenter() {
+      var lat1 = document.getElementById("lat").value;
+      var long1 = document.getElementById("long").value;
+      var lat2 = document.getElementById("lat").value;
+      var long2 = document.getElementById("lat").value;
+      const fi1 = lat1 * Math.PI/180, fi2 = lat2 * Math.PI/180, delta_lambda = (long2-long1) * Math.PI/180, R = 6371e3;
+      const d = Math.acos( Math.sin(fi1)*Math.sin(fi2) + Math.cos(fi1)*Math.cos(fi2) * Math.cos(delta_lambda) ) * R;
+
+      return d;
+    }
 
 
 })(jQuery);

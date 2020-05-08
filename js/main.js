@@ -67,7 +67,7 @@
 
       L.marker([lat, long]).addTo(mymap)
 				.bindPopup("<b>Hello!</b><br />This is your location.").openPopup();
-      // mymap.locate({setView: true, maxZoom: 15});
+       mymap.setView([lat, long], 12);
     });
 
 

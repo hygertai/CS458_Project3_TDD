@@ -44,9 +44,10 @@ crossorigin=""></script>
 				<div class="special-btn" id="get-gps-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button class="contact100-form-btn">
+						<!-- <button class="contact100-form-btn" onclick="getCurrentPosition()">
 							Get my Location using GPS
-						</button>
+						</button> -->
+						<button class="pure-button pure-button-primary">Get my location using GPS</button>
 					</div>
 				</div>
 
@@ -88,9 +89,10 @@ crossorigin=""></script>
 
 	<script>
 
-			var mymap = L.map('mapid').setView([39.920777, 32.854067], 13);
+
 			var latitude = 39.881951;
 			var longitude = 32.758416;
+			var mymap = L.map('mapid').setView([latitude, longitude], 12);
 
 			L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={access_token}', {
 				maxZoom: 18,
@@ -111,12 +113,12 @@ crossorigin=""></script>
 			// zoom: 9 // starting zoom
 			// });
 
-			var marker = new mapboxgl.Marker()
-			  .setLngLat([latitude, longitude])
-			  .addTo(mymap);
+			// var marker = new mapboxgl.Marker()
+			//   .setLngLat([latitude, longitude])
+			//   .addTo(mymap);
 
-			// L.marker([latitude, longitude]).addTo(mymap)
-			// 	.bindPopup("<b>Hello!</b><br />This is your location.").openPopup();
+			L.marker([latitude, longitude]).addTo(mymap)
+				.bindPopup("<b>Hello!</b><br />This is your location.").openPopup();
 
 			L.circle([39.881951, 32.758416], 200, {
 				color: 'red',

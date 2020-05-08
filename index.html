@@ -42,31 +42,34 @@ crossorigin=""></script>
 					Location Service - TDD
 				</span>
 
-				<div class="wrap-input100 validate-input" data-validate="Latitude is required">
+				<div class="special-btn" id="get-gps-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							Get my Location using GPS
+						</button>
+					</div>
+				</div>
+
+				<div class="wrap-input100 validate-input" id="lat" data-validate="Latitude is required (decimal)">
 					<span class="label-input100">Latitude</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Latitude here...">
+					<input class="input100" type="number" name="lat" placeholder="Enter Latitude here...">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input" data-validate = "Longitude is required">
+				<div class="wrap-input100 validate-input" id="long" data-validate = "Longitude is required (decimal)">
 					<span class="label-input100">Longitude</span>
-					<input class="input100" type="text" name="email" placeholder="Enter Longitude here...">
+					<input class="input100" type="number" name="long" placeholder="Enter Longitude here...">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100">
+			<!--	<div class="wrap-input100">
 					<span class="label-input100">Get my Location (GPS)</span>
 					<input class="input100" type="text" name="phone" placeholder="Your location...">
 					<span class="focus-input100"></span>
-				</div>
-
-				<!-- <div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<span class="label-input100">Message</span>
-					<textarea class="input100" name="message" placeholder="Questions/Comments..."></textarea>
-					<span class="focus-input100"></span>
 				</div> -->
 
-				<div class="container-contact100-form-btn">
+				<div class="container-contact100-form-btn" id="city-center-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
 						<button class="contact100-form-btn">
@@ -74,7 +77,8 @@ crossorigin=""></script>
 						</button>
 					</div>
 				</div>
-				<div class="container-contact100-form-btn">
+
+				<div class="container-contact100-form-btn" id="earth-center-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
 						<button class="contact100-form-btn">
@@ -92,6 +96,8 @@ crossorigin=""></script>
 	<script>
 
 var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+var latitude = 51.5;
+var longitude = -0.09;
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 	maxZoom: 18,
@@ -103,10 +109,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 	zoomOffset: -1
 }).addTo(mymap);
 
-L.marker([51.5, -0.09]).addTo(mymap)
+L.marker([latitude, longitude]).addTo(mymap)
 	.bindPopup("<b>Hello!</b><br />This is your location.").openPopup();
 
-L.circle([51.508, -0.11], 500, {
+L.circle([51.508, -0.11], 200, {
 	color: 'red',
 	fillColor: '#f03',
 	fillOpacity: 0.5

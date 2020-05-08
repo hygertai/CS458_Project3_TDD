@@ -12,7 +12,7 @@
             else {
                 $(this).removeClass('has-val');
             }
-        })    
+        })
     })
 
 
@@ -26,7 +26,7 @@
             else {
                 $(this).parent().addClass('true-validate');
             }
-        })    
+        })
     })
 
     /*==================================================================
@@ -78,6 +78,7 @@
 
         $(thisAlert).removeClass('alert-validate');
     }
+
     
 
 

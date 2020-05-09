@@ -287,8 +287,8 @@ crossorigin=""></script>
 				var radius = 6370;
 				var altitude = ' +/- 0.7';
 				  var location = [lat1, long1];
-				  console.log(location[0]);
-				  console.log(radius);
+				//  console.log(location[0]);
+				//  console.log(radius);
 				  var radius = 6370;
 				  var altitude = ' +/- 0.7';
 				//  var dist = getElevation(location);
@@ -306,10 +306,10 @@ crossorigin=""></script>
 				for (i = 0; i < allFeatures.length; i++) {
 				  elevations.push(allFeatures[i].properties.ele);
 				}
-				console.log(elevations);
+			//	console.log(elevations);
 				// In the elevations array, find the largest value
 				var highestElevation = Math.max(...elevations);
-				console.log(highestElevation);
+			//	console.log(highestElevation);
 				//return highestElevation;
 				var info = "Your distance from Earth Center is " + radius + " km. " + highestElevation + " m. ";
 				document.getElementById("result").innerHTML = info;

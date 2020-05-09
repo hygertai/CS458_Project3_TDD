@@ -106,6 +106,7 @@
         .bindPopup("<b>Hello!</b><br />This is your location.").openPopup();;
   }
 
+
 function distanceToCityCenter() {
   var lat1 = document.getElementById("lat").value;
   var long1 = document.getElementById("long").value;

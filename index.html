@@ -24,9 +24,25 @@ crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
 integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
 crossorigin=""></script>
-
+<!--
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' /> -->
+
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.4.0/dist/esri-leaflet.js"
+  integrity="sha512-kq0i5Xvdq0ii3v+eRLDpa++uaYPlTuFaOYrfQ0Zdjmms/laOwIvLMAxh7cj1eTqqGG47ssAcTY4hjkWydGt6Eg=="
+  crossorigin=""></script>
+
+
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.2/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.2/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-8twnXcrOGP3WfMvjB0jS5pNigFuIWj4ALwWEgxhZ+mxvjF5/FBPVd5uAxqT8dd2kUmTVK9+yQJ4CmTmSg/sXAQ=="
+    crossorigin=""></script>
+
+
 </head>
 <body>
 
@@ -147,11 +163,27 @@ crossorigin=""></script>
 
 			var popup = L.popup();
 
+			var geocodeService = L.esri.Geocoding.geocodeService();
+			// map.on('click', function (e) {
+			// 	geocodeService.reverse().latlng(e.latlng).run(function (error, result) {
+			// 		if (error) {
+			// 			return;
+			// 		}
+			//  L.marker(result.latlng).addTo(mymap).bindPopup(result.address.Match_addr).openPopup();
+			// 	});
+			// });
+
 			function onMapClick(e) {
-				popup
-					.setLatLng(e.latlng)
-					.setContent("You clicked the map at " + e.latlng.toString())
-					.openOn(mymap);
+				geocodeService.reverse().latlng(e.latlng).run(function (error, result) {
+					if (error) {
+						return;
+					}
+			 L.marker(result.latlng).addTo(mymap).bindPopup(result.address.Match_addr).openPopup();
+				});
+				// popup
+				// 	.setLatLng(e.latlng)
+				// 	.setContent("You clicked the map at " + e.latlng.toString())
+				// 	.openOn(mymap);
 			}
 			mymap.on('click', onMapClick);
 
@@ -175,7 +207,6 @@ crossorigin=""></script>
 				mymap.setView([lat, long], 12);
 			}
 
-
 			function distanceToCityCenter() {
 			  var lat1 = document.getElementsByName('lat')[0].value;
 			  var long1 = document.getElementsByName("long")[0].value;
@@ -191,14 +222,8 @@ crossorigin=""></script>
 			    ;
 			  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 			  var d = 6367 * c; // Distance in km
-			  //return d;
-			  // const fi1 = lat1 * Math.PI/180, fi2 = lat2 * Math.PI/180, delta_lambda = (long2-long1) * Math.PI/180, R = 6371e3;
-			  // const d = Math.acos( Math.sin(fi1)*Math.sin(fi2) + Math.cos(fi1)*Math.cos(fi2) * Math.cos(delta_lambda) ) * R;
-
 				var info = "Your distance from City center is " + d + " km.";
 				document.getElementById("result").innerHTML = info;
-
-			  //return d;
 			}
 
 			function distanceToEarthCenter() {
@@ -311,9 +336,9 @@ crossorigin=""></script>
 </script> -->
 
 			 <!--Load the API -->
-	<script async defer
+	<!-- <script async defer
 			 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGEbAa_WjVH__x1X0LDo2HBGp7Yf-8rsE&callback=initMap">
-	</script>
+	</script> -->
 
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>

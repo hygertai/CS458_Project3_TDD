@@ -220,26 +220,41 @@ crossorigin=""></script>
 					//alert(lat) //this alert works here ok and can retur addrress
 					// message =result.address.Match_addr;
 					// ShowMsgAfterRequest();
+					getData(lastItem);
 				})
 			}
 
-			function getData(city) {
-				// d3.csv("worldcities.csv").then(function(data) {
-				//   data.forEach(function(d) {
-				//     d["city_ascii"] = +d["city_ascii"];
-				// 		d.lat = +d.lat;
-				// 		d.lng = +d.lng;
-				//   });
-				//   console.log(data[0]);
-				// });
+			function getData(thiscity) {
+				d3.csv("https://raw.githubusercontent.com/hygertai/CS458_Project3_TDD/master/UI/worldcities.csv?token=AHBDAQ7QJUGMN3333ATWDRS6X742M").then(function(data) {
+				  data.forEach(function(d) {
+				    d.city = +d.city;
+						d.lat = +d.lat;
+						d.lng = +d.lng;
+				  });
+				  console.log(data["city"] = thiscity);
+				});
 
-				d3.csv("worldcities.csv", function(csv) {
-					csv = csv.filter(function(row) {
-						return row['city_ascii'] == city;
-					})
-				//vis.datum(csv).call(chart);
-			});
+			// 	d3.csv("https://raw.githubusercontent.com/hygertai/CS458_Project3_TDD/master/UI/worldcities.csv?token=AHBDAQ7QJUGMN3333ATWDRS6X742M", function(csv) {
+			// 		csv = csv.filter(function(row) {
+			// 			return row['city'] == city;
+			// 		})
+			// });
 			}
+
+			// var csv = require("csv-query");
+			//
+			// csv.createFromFile(
+			//   "/Users/hygertaimeri/Desktop/CS458_Project3_TDD/UI" + "/worldcities.csv"
+			// ).then(function (db) {
+			//   return db.findOne({
+			//     city: thiscity
+			//   });
+			// }).then(function (record) {
+			//   console.log("ahah");
+			// }).catch(function (error) {
+			//   throw error;
+			// });
+			// }
 
 
 
@@ -260,7 +275,7 @@ crossorigin=""></script>
 			  var d = 6367 * c; // Distance in km
 				var info = "Your distance from City center is " + d + " km.";
 				document.getElementById("result").innerHTML = info;
-				getData();
+				// getData();
 			}
 
 			function distanceToEarthCenter() {

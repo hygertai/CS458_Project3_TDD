@@ -42,6 +42,8 @@ crossorigin=""></script>
     integrity="sha512-8twnXcrOGP3WfMvjB0jS5pNigFuIWj4ALwWEgxhZ+mxvjF5/FBPVd5uAxqT8dd2kUmTVK9+yQJ4CmTmSg/sXAQ=="
     crossorigin=""></script>
 
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+
 
 </head>
 <body>
@@ -211,13 +213,35 @@ crossorigin=""></script>
 				checkMessageAfterSometime(5000);
 
 				geocodeService.reverse().latlng([lat, long]).run(function(error, result) {
-					var message = "You are close to: " + result.address.Match_addr + " .";
+					var res = result.address.Match_addr;
+					var lastItem = res.split(",").pop();
+					var message = "You are close to: " + lastItem + " city .";
 					document.getElementById("result").innerHTML = message;
 					//alert(lat) //this alert works here ok and can retur addrress
 					// message =result.address.Match_addr;
 					// ShowMsgAfterRequest();
 				})
 			}
+
+			function getData(city) {
+				// d3.csv("worldcities.csv").then(function(data) {
+				//   data.forEach(function(d) {
+				//     d["city_ascii"] = +d["city_ascii"];
+				// 		d.lat = +d.lat;
+				// 		d.lng = +d.lng;
+				//   });
+				//   console.log(data[0]);
+				// });
+
+				d3.csv("worldcities.csv", function(csv) {
+					csv = csv.filter(function(row) {
+						return row['city_ascii'] == city;
+					})
+				//vis.datum(csv).call(chart);
+			});
+			}
+
+
 
 			function distanceToCityCenter() {
 			  var lat1 = document.getElementsByName('lat')[0].value;
@@ -236,6 +260,7 @@ crossorigin=""></script>
 			  var d = 6367 * c; // Distance in km
 				var info = "Your distance from City center is " + d + " km.";
 				document.getElementById("result").innerHTML = info;
+				getData();
 			}
 
 			function distanceToEarthCenter() {

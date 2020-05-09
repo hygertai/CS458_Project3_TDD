@@ -33,20 +33,20 @@
     [ Validate ]*/
     var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
-
-        var lat = document.getElementsByName("lat")[0].value;
-        var long = document.getElementsByName("long")[0].value;
-
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
-        return check;
-    });
+    // $('.validate-form').on('submit',function(){
+    //     var check = true;
+    //
+    //     var lat = document.getElementsByName("lat")[0].value;
+    //     var long = document.getElementsByName("long")[0].value;
+    //
+    //     for(var i=0; i<input.length; i++) {
+    //         if(validate(input[i]) == false){
+    //             showValidate(input[i]);
+    //             check=false;
+    //         }
+    //     }
+    //     return check;
+    // });
 
 
     $('.validate-form .input100').each(function(){
@@ -57,19 +57,65 @@
     });
 
     //$('.validate-form .contact100-form-btn').click(function() { locateControl.locate(); });
-    $('.pure-button').on('click', function(){
-      mymap.locate({setView: true, maxZoom: 15});
-    });
+    // $('.pure-button').on('click', function(){
+    //   const initialPosition = { lat: 59.325, lng: 18.069 };
+    //
+    //   const map = new google.maps.Map(document.getElementById('mapid'), {
+    //     center: initialPosition,
+    //     zoom: 15
+    //   });
+    //
+    //   const marker = new google.maps.Marker({ map, position: initialPosition });
+    //
+    //   // Get user's location
+    //   if ('geolocation' in navigator) {
+    //     navigator.geolocation.getCurrentPosition(
+    //       position => console.log(`Lat: ${position.coords.latitude} Lng: ${position.coords.longitude}`),
+    //       err => alert(`Error (${err.code}): ${err.message}`)
+    //     );
+    //   } else {
+    //     alert('Geolocation is not supported by your browser.');
+    //   }
+    // });
 
-    $('.show-location-btn').on('click', function(){
-      var lat = document.getElementsByName("lat")[0].value;
-      var long = document.getElementsByName("long")[0].value;
+    // $('.show-location-btn').on('click', function(){
+    //   var lat = document.getElementsByName("lat")[0].value;
+    //   var long = document.getElementsByName("long")[0].value;
+    //
+    //   const initialPosition = { lat: lat, lng: long};
+    //
+    //   const map = new google.maps.Map(document.getElementById('mapid'), {
+    //     center: initialPosition,
+    //     zoom: 15
+    //   });
+    //
+    //   const marker = new google.maps.Marker({ map, position: initialPosition });
+    //
+    //   // L.marker([lat, long]).addTo(mymap)
+		// 	// 	.bindPopup("<b>Hello!</b><br />This is your location.").openPopup();
+    //   //  mymap.setView([lat, long], 12);
+    // });
 
-      L.marker([lat, long]).addTo(mymap)
-				.bindPopup("<b>Hello!</b><br />This is your location.").openPopup();
-       mymap.setView([lat, long], 12);
-    });
+    function init() {
+      const initialPosition = { lat: 59.325, lng: 18.069 };
 
+      const map = new google.maps.Map(document.getElementById('mapid'), {
+        center: initialPosition,
+        zoom: 15
+      });
+
+      const marker = new google.maps.Marker({ map, position: initialPosition });
+
+      // Get user's location
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          position => console.log(`Lat: ${position.coords.latitude} Lng: ${position.coords.longitude}`),
+          err => alert(`Error (${err.code}): ${err.message}`)
+        );
+      } else {
+        alert('Geolocation is not supported by your browser.');
+      }
+    }
 
     // function validate (input) {
     //     if($(input).attr('type') == 'number' || $(input).attr('name') == 'email') {
@@ -99,24 +145,24 @@
 })(jQuery);
 
   //check for location, if found show marker
-  mymap.on('locationfound', onLocationFound);
-  function onLocationFound(e) {
-    console.log(e);
-    L.marker(e.latlng).addTo(mymap)
-        .bindPopup("<b>Hello!</b><br />This is your location.").openPopup();;
-  }
+  // mymap.on('locationfound', onLocationFound);
+  // function onLocationFound(e) {
+  //   console.log(e);
+  //   L.marker(e.latlng).addTo(mymap)
+  //       .bindPopup("<b>Hello!</b><br />This is your location.").openPopup();;
+  // }
 
 
-function distanceToCityCenter() {
-  var lat1 = document.getElementById("lat").value;
-  var long1 = document.getElementById("long").value;
-  var lat2 = document.getElementById("lat").value;
-  var long2 = document.getElementById("lat").value;
-  const fi1 = lat1 * Math.PI/180, fi2 = lat2 * Math.PI/180, delta_lambda = (long2-long1) * Math.PI/180, R = 6371e3;
-  const d = Math.acos( Math.sin(fi1)*Math.sin(fi2) + Math.cos(fi1)*Math.cos(fi2) * Math.cos(delta_lambda) ) * R;
-
-  return d;
-}
+// function distanceToCityCenter() {
+//   var lat1 = document.getElementById("lat").value;
+//   var long1 = document.getElementById("long").value;
+//   var lat2 = document.getElementById("lat").value;
+//   var long2 = document.getElementById("lat").value;
+//   const fi1 = lat1 * Math.PI/180, fi2 = lat2 * Math.PI/180, delta_lambda = (long2-long1) * Math.PI/180, R = 6371e3;
+//   const d = Math.acos( Math.sin(fi1)*Math.sin(fi2) + Math.cos(fi1)*Math.cos(fi2) * Math.cos(delta_lambda) ) * R;
+//
+//   return d;
+// }
 
 
 // navigator.geolocation.getCurrentPosition(function(location) {

@@ -19,7 +19,7 @@ public class TDDInteractiveMap {
     public void Initialize() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\Desktop\\Web_Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("C:/xampp/htdocs/CS458_Project3_TDD/index.html");
+        driver.get("http://127.0.0.1:8080/");
     }
 
     @AfterMethod
@@ -29,12 +29,12 @@ public class TDDInteractiveMap {
 
     @BeforeMethod
     public void BeforeMethod() throws IOException {
-        latitude_element = driver.findElement(By.xpath("//input[@id='lat']"));
-        longtitude_element = driver.findElement(By.xpath("//input[@id='long']"));
-        distance_from_city_center_btn = driver.findElement(By.xpath("//button[id='city-center-btn']"));
-        distance_from_earth_core_btn = driver.findElement(By.xpath("//button[id='earth-center-btn']"));
-        get_location_by_gps_btn = driver.findElement(By.xpath("//button[id='get-gps-btn']"));
-        get_location_by_coordinates_btn = driver.findElement(By.xpath("//button[id='get-coords-btn']"));
+        latitude_element = driver.findElementById("lat");
+        longtitude_element = driver.findElementById("long");
+        distance_from_city_center_btn = driver.findElementById("city-center-btn");
+        distance_from_earth_core_btn = driver.findElementById("earth-center-btn");
+        get_location_by_gps_btn = driver.findElementById("get-gps-btn");
+        get_location_by_coordinates_btn = driver.findElementById("get-coords-btn");
     }
 
     @DataProvider(name = "distanceToCityCenterDataProvider")
@@ -45,7 +45,6 @@ public class TDDInteractiveMap {
 
     @Test(dataProvider = "distanceToCityCenterDataProvider")
     public void distanceToCityCenterTest(String latitude, String longtitude, String expectedResult) {
-
         performDistanceToCityCenter(latitude, longtitude, expectedResult);
     }
 
@@ -82,6 +81,7 @@ public class TDDInteractiveMap {
     ////METHODS////
 
     void performDistanceToCityCenter(String latitude, String longtitude, String expectedResult) {
+        latitude_element.click();
         latitude_element.sendKeys(latitude);
         longtitude_element.sendKeys(longtitude);
         distance_from_city_center_btn.click();
@@ -123,7 +123,7 @@ public class TDDInteractiveMap {
 
         for (int i = 0; i < testJson.size(); i++) {
             JsonObject obj = testJson.get(i).getAsJsonObject();
-            testData[i][0] = obj.get("lan").getAsString();
+            testData[i][0] = obj.get("lat").getAsString();
             testData[i][1] = obj.get("long").getAsString();
             testData[i][2] = obj.get("output").getAsString();
         }

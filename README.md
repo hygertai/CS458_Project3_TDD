@@ -7,3 +7,4 @@ location tracking through GPS, reverse Geocoding, distance to nearest city cente
 The development followed very short development cycles to fulfill requirements and the Test-Driven Development process. 
 A screen view of the page is as below. 
 
+![image](/UI/screen.png)

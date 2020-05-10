@@ -60,13 +60,13 @@
 
 				<div class="wrap-input100 validate-input" id="lat" data-validate="Latitude is required (decimal)">
 					<span class="label-input100">Latitude</span>
-					<input class="input100" type="number" name="lat" step="any" min="-90" max="90" placeholder="Enter Latitude here...">
+					<input class="input100" id="lat_input" type="number" name="lat" step="any" min="-90" max="90" placeholder="Enter Latitude here...">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" id="long" data-validate="Longitude is required (decimal)">
 					<span class="label-input100">Longitude</span>
-					<input class="input100" type="number" name="long" step="any" min="-180" max="180" placeholder="Enter Longitude here...">
+					<input class="input100" id="long_input" type="number" name="long" step="any" min="-180" max="180" placeholder="Enter Longitude here...">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -77,7 +77,7 @@
 							Get my Location using GPS
 						</button> -->
 						<!-- <button type="button" onclick="showPosition();">Get my Location using GPS</button> -->
-						<button type="button" class="pure-button pure-button-primary" onclick="showPosition();">
+						<button type="button" id="get-gps" class="pure-button pure-button-primary" onclick="showPosition();">
 							Get my location using GPS</button>
 					</div>
 				</div>
@@ -85,7 +85,7 @@
 				<div class="special-btn" id="get-coords-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-special"></div>
-						<button type="button" class="show-location-btn" onclick="showPositionbyCoordinates();">
+						<button type="button" id="get-coords" class="show-location-btn" onclick="showPositionbyCoordinates();">
 							Get my location using Coordinates Above</button>
 					</div>
 				</div>
@@ -93,7 +93,7 @@
 				<div class="container-contact100-form-btn" id="city-center-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button type="button" class="contact100-form-btn" onclick="distanceToCityCenter();">
+						<button type="button" id="city-center" class="contact100-form-btn" onclick="distanceToCityCenter();">
 							Find distance from city center
 						</button>
 					</div>
@@ -102,7 +102,7 @@
 				<div class="container-contact100-form-btn" id="earth-center-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button type="button" class="contact100-form-btn" onclick="distanceToEarthCenter();">
+						<button type="button" id="earth-center" class="contact100-form-btn" onclick="distanceToEarthCenter();">
 							Find distance from Earth center
 						</button>
 					</div>

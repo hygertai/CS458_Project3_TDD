@@ -3,47 +3,69 @@
     {
       "lat": "39.881951",
       "long": "32.758416",
-      "output": "City: Ankara (Distance to city center: 9.25 kilometers)"
+      "output": "You are close to: Ankara city."
     },
     {
       "lat": "41.052244",
       "long": "29.010528",
-      "output": "City: Istanbul (Distance to city center: 6.08 kilometers)"
+      "output": "You are close to: İstanbul city."
     },
     {
       "lat": "41.283132",
       "long": "19.857139",
-      "output": "City: Tirana (Distance to city center: 5.82 kilometers)"
+      "output": "You are close to: Tirana East Gate city."
     },
     {
       "lat": "41.365018",
       "long": "-88.860369",
-      "output": "City: Ottawa (Distance to city center: 1156.50 kilometers)"
+      "output": "You are close to: Illinois city ."
     }
   ],
   "Test2": [
     {
       "lat": "39.881951",
       "long": "32.758416",
-      "output": "Distance to Earth Center: ~6,378 km"
+      "output": "Your distance from City center is 10.339684658976024 km."
     },
     {
       "lat": "41.052244",
       "long": "29.010528",
-      "output": "Distance to Earth Center: ~6,378 km"
+      "output": "Your distance from City center is 5416.10105181047 km."
     },
     {
       "lat": "41.283132",
       "long": "19.857139",
-      "output": "Distance to Earth Center: ~6,378 km"
+      "output": "Your distance from City center is 5003.584811417569 km."
     },
     {
       "lat": "41.365018",
       "long": "-88.860369",
-      "output": "Distance to Earth Center: ~6,378 km"
+      "output": "Your distance from City center is 9906.216550057234 km."
     }
   ],
   "Test3": [
+    {
+      "lat": "39.881951",
+      "long": "32.758416",
+      "output": "Your distance from Earth Center is 6370 km. 940 m."
+    },
+    {
+      "lat": "41.052244",
+      "long": "29.010528",
+      "output": "Your distance from Earth Center is 6370 km. 80 m."
+    },
+    {
+      "lat": "41.283132",
+      "long": "19.857139",
+      "output": "Your distance from Earth Center is 6370 km. 140 m."
+    },
+    {
+      "lat": "41.365018",
+      "long": "-88.860369",
+      "output": "Your distance from Earth Center is 6370 km. 180 m."
+    }
+  ],
+  "Test4": [
     {
       "lat": "39.88 1951",
       "long": "32.758416",

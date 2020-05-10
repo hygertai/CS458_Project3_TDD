@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import javax.swing.plaf.TableHeaderUI;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -30,12 +31,12 @@ public class TDDInteractiveMap {
     @BeforeMethod
     public void BeforeMethod() throws IOException, InterruptedException {
         //Thread.sleep(2000);
-        latitude_element = driver.findElementById("lat");
-        longtitude_element = driver.findElementById("long");
-        distance_from_city_center_btn = driver.findElementById("city-center-btn");
-        distance_from_earth_core_btn = driver.findElementById("earth-center-btn");
-        get_location_by_gps_btn = driver.findElementById("get-gps-btn");
-        get_location_by_coordinates_btn = driver.findElementById("get-coords-btn");
+        latitude_element = driver.findElementById("lat_input");
+        longtitude_element = driver.findElementById("long_input");
+        distance_from_city_center_btn = driver.findElementById("city-center");
+        distance_from_earth_core_btn = driver.findElementById("earth-center");
+        get_location_by_gps_btn = driver.findElementById("get-gps");
+        get_location_by_coordinates_btn = driver.findElementById("get-coords");
     }
 
     @DataProvider(name = "distanceToCityCenterDataProvider")
@@ -45,7 +46,7 @@ public class TDDInteractiveMap {
     }
 
     @Test(dataProvider = "distanceToCityCenterDataProvider")
-    public void distanceToCityCenterTest(String latitude, String longtitude, String expectedResult) {
+    public void distanceToCityCenterTest(String latitude, String longtitude, String expectedResult) throws InterruptedException {
         performDistanceToCityCenter(latitude, longtitude, expectedResult);
     }
 
@@ -56,7 +57,7 @@ public class TDDInteractiveMap {
     }
 
     @Test(dataProvider = "distanceToEarthCoreDataProvider")
-    public void distanceToEarthCoreTest(String latitude, String longtitude, String expectedResult) {
+    public void distanceToEarthCoreTest(String latitude, String longtitude, String expectedResult) throws InterruptedException {
 
         performDistanceToEarthCenter(latitude, longtitude, expectedResult);
     }
@@ -81,20 +82,24 @@ public class TDDInteractiveMap {
 
     ////METHODS////
 
-    void performDistanceToCityCenter(String latitude, String longtitude, String expectedResult) {
+    void performDistanceToCityCenter(String latitude, String longtitude, String expectedResult) throws InterruptedException {
         latitude_element.sendKeys(latitude);
         longtitude_element.sendKeys(longtitude);
+        Thread.sleep(1000);
         get_location_by_coordinates_btn.click();
+        Thread.sleep(1000);
         distance_from_city_center_btn.click();
         label = driver.findElementById("result");
         String outcome = label.getText();
         Assert.assertEquals(outcome, expectedResult);
     }
 
-    void performDistanceToEarthCenter(String latitude, String longtitude, String expectedResult) {
+    void performDistanceToEarthCenter(String latitude, String longtitude, String expectedResult) throws InterruptedException {
         latitude_element.sendKeys(latitude);
         longtitude_element.sendKeys(longtitude);
+        Thread.sleep(1000);
         get_location_by_coordinates_btn.click();
+        Thread.sleep(1000);
         distance_from_earth_core_btn.click();
         label = driver.findElementById("result");
         String outcome = label.getText();
@@ -111,11 +116,11 @@ public class TDDInteractiveMap {
     }
 
     void performFindLocationByGps() throws InterruptedException {
-        get_location_by_gps_btn = driver.findElement(By.xpath("//button[id='get-gps-btn']"));
         get_location_by_gps_btn.click();
-        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message2']"));
+        Thread.sleep(1000);
+        label = driver.findElementById("result");
         String outcome = label.getText();
-        Assert.assertEquals(outcome, "A new password is sent to your Bilkent Mail.");
+        Assert.assertEquals(outcome, "You are close to: Ankara city .");
     }
 
     public static Object[][] readCredentialsFromResource(String json, String testName) {

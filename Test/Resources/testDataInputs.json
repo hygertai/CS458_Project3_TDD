@@ -19,6 +19,41 @@
       "lat": "41.365018",
       "long": "-88.860369",
       "output": "You are close to: Illinois city."
+    },
+    {
+      "lat": "39.88 1951",
+      "long": "32.758416",
+      "output": "You are close to: Ankara city."
+    },
+    {
+      "lat": "39.881951",
+      "long": "32.75  8416",
+      "output": "You are close to: Ankara city."
+    },
+    {
+      "lat": "39.88 1951",
+      "long": "32.758416",
+      "output": "You are close to: Ankara city."
+    },
+    {
+      "lat": "129.881951",
+      "long": "32.758416",
+      "output": ""
+    },
+    {
+      "lat": "39.881951",
+      "long": "-192.758416",
+      "output": ""
+    },
+    {
+      "lat": "_39.881951",
+      "long": "32.758416",
+      "output": "You are close to: Ankara city."
+    },
+    {
+      "lat": "39.881951",
+      "long": "32/758416",
+      "output": ""
     }
   ],
   "Test2": [
@@ -63,43 +98,6 @@
       "lat": "41.365018",
       "long": "-88.860369",
       "output": "Your distance from Earth Center is 6370 km. 180 m."
-    }
-  ],
-  "Test4": [
-    {
-      "lat": "39.88 1951",
-      "long": "32.758416",
-      "output": "Latitude cannot contain whitespace"
-    },
-    {
-      "lat": "39.881951",
-      "long": "32.75  8416",
-      "output": "Longitude cannot contain whitespace"
-    },
-    {
-      "lat": "39.88 1951",
-      "long": "32.758416",
-      "output": "Latitude cannot contain whitespace"
-    },
-    {
-      "lat": "129.881951",
-      "long": "32.758416",
-      "output": "Latitude is out of range [-90,90]"
-    },
-    {
-      "lat": "39.881951",
-      "long": "-192.758416",
-      "output": " Longitude is out of range [-180,180]"
-    },
-    {
-      "lat": "_39.881951",
-      "long": "32.758416",
-      "output": "Latitude must be a pos/neg decimal"
-    },
-    {
-      "lat": "39.881951",
-      "long": "32/758416",
-      "output": "Longitude must be a pos/neg decimal"
     }
   ]
 }

@@ -28,7 +28,8 @@ public class TDDInteractiveMap {
     }
 
     @BeforeMethod
-    public void BeforeMethod() throws IOException {
+    public void BeforeMethod() throws IOException, InterruptedException {
+        //Thread.sleep(2000);
         latitude_element = driver.findElementById("lat");
         longtitude_element = driver.findElementById("long");
         distance_from_city_center_btn = driver.findElementById("city-center-btn");
@@ -81,11 +82,11 @@ public class TDDInteractiveMap {
     ////METHODS////
 
     void performDistanceToCityCenter(String latitude, String longtitude, String expectedResult) {
-        latitude_element.click();
         latitude_element.sendKeys(latitude);
         longtitude_element.sendKeys(longtitude);
+        get_location_by_coordinates_btn.click();
         distance_from_city_center_btn.click();
-        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message']"));
+        label = driver.findElementById("result");
         String outcome = label.getText();
         Assert.assertEquals(outcome, expectedResult);
     }
@@ -93,8 +94,9 @@ public class TDDInteractiveMap {
     void performDistanceToEarthCenter(String latitude, String longtitude, String expectedResult) {
         latitude_element.sendKeys(latitude);
         longtitude_element.sendKeys(longtitude);
+        get_location_by_coordinates_btn.click();
         distance_from_earth_core_btn.click();
-        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message']"));
+        label = driver.findElementById("result");
         String outcome = label.getText();
         Assert.assertEquals(outcome, expectedResult);
     }
@@ -103,7 +105,7 @@ public class TDDInteractiveMap {
         latitude_element.sendKeys(latitude);
         longtitude_element.sendKeys(longtitude);
         get_location_by_coordinates_btn.click();
-        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message']"));
+        label = driver.findElementById("result");
         String outcome = label.getText();
         Assert.assertEquals(outcome, expectedResult);
     }

@@ -42,7 +42,7 @@ public class TDDInteractiveMap {
     @DataProvider(name = "distanceToCityCenterDataProvider")
     public static Object[] distanceToCityCenterDataProvider() throws IOException {
         String data = readFile("Resources/testDataInputs.json");
-        return readCredentialsFromResource(data, "Test1");
+        return readCredentialsFromResource(data, "Test2");
     }
 
     @Test(dataProvider = "distanceToCityCenterDataProvider")
@@ -53,7 +53,7 @@ public class TDDInteractiveMap {
     @DataProvider(name = "distanceToEarthCoreDataProvider")
     public static Object[] distanceToEarthCoreDataProvider() throws IOException {
         String data = readFile("Resources/testDataInputs.json");
-        return readCredentialsFromResource(data, "Test2");
+        return readCredentialsFromResource(data, "Test3");
     }
 
     @Test(dataProvider = "distanceToEarthCoreDataProvider")
@@ -65,7 +65,7 @@ public class TDDInteractiveMap {
     @DataProvider(name = "getLocationUsingCoordinatesDataProvider")
     public static Object[] getLocationUsingCoordinatesDataProvider() throws IOException {
         String data = readFile("Resources/testDataInputs.json");
-        return readCredentialsFromResource(data, "Test3");
+        return readCredentialsFromResource(data, "Test1");
     }
 
     @Test(dataProvider = "getLocationUsingCoordinatesDataProvider")
@@ -101,6 +101,7 @@ public class TDDInteractiveMap {
         get_location_by_coordinates_btn.click();
         Thread.sleep(1000);
         distance_from_earth_core_btn.click();
+        Thread.sleep(1000);
         label = driver.findElementById("result");
         String outcome = label.getText();
         Assert.assertEquals(outcome, expectedResult);
@@ -120,7 +121,7 @@ public class TDDInteractiveMap {
         Thread.sleep(1000);
         label = driver.findElementById("result");
         String outcome = label.getText();
-        Assert.assertEquals(outcome, "You are close to: Ankara city .");
+        Assert.assertEquals(outcome, "You are close to: Ankara city.");
     }
 
     public static Object[][] readCredentialsFromResource(String json, String testName) {

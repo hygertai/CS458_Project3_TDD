@@ -18,29 +18,29 @@
     {
       "lat": "41.365018",
       "long": "-88.860369",
-      "output": "You are close to: Illinois city ."
+      "output": "You are close to: Illinois city."
     }
   ],
   "Test2": [
     {
       "lat": "39.881951",
       "long": "32.758416",
-      "output": "Your distance from City center is 10.339684658976024 km."
+      "output": "Your distance from City center is 10.34 km."
     },
     {
       "lat": "41.052244",
       "long": "29.010528",
-      "output": "Your distance from City center is 5416.10105181047 km."
+      "output": "Your distance from City center is 5416.10 km."
     },
     {
       "lat": "41.283132",
       "long": "19.857139",
-      "output": "Your distance from City center is 5003.584811417569 km."
+      "output": "Your distance from City center is 5003.58 km."
     },
     {
       "lat": "41.365018",
       "long": "-88.860369",
-      "output": "Your distance from City center is 9906.216550057234 km."
+      "output": "Your distance from City center is 9906.22 km."
     }
   ],
   "Test3": [
